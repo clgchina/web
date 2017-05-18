@@ -1,0 +1,871 @@
+/* 
+	下面的盒子大都是采用百分比，因继承关系，
+	所以html,body也要100%width、height,不然content盒子会没有高度 
+*/
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+html,body{
+	width:100%;
+	height:100%;
+	color: #fff;
+	font-size: 14px;
+	font-family: "幼圆";
+	/*background: #ddd;*/
+	/* 不给它出现滚动条	*/
+	overflow: hidden;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+/* 实际应该给a input标签id 或者class 免得污染相同的元素 */
+/* 导航radio、a的定位与一些共同的样式，此时全部挤在一起 */
+.container input.nav,.container a {
+	width: 20%;
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+	bottom: 0;
+	display: inline-block;
+	cursor: pointer;	/*手形状光标*/
+}
+
+/* 把它给隐藏设置透明,但是radio的选中按钮还是有效的 */
+.container .nav {
+	opacity: 0;
+	z-index: 99;
+}
+
+/* container 下a的样式 */
+.container a {
+	color: #E0FFFF;
+	font-size: 16px;
+	font-weight: 500;
+	text-align: center;
+	background-color: rgba(0,0,0,0.8);
+	text-decoration: none;
+	z-index: 10;	/*放在input的后面*/
+}
+
+/* 上面固定定位了 现在改变导航他们的位置 */
+#control-1,#control-1 + a {
+	left: 0%;
+}
+#control-2,#control-2 + a {
+	left: 20%;
+}
+#control-3,#control-3 + a {
+	left: 40%;
+}
+#control-4,#control-4 + a {
+	left: 60%;
+}
+#control-5,#control-5 + a {
+	left: 80%;
+}
+
+/* css3的选择器input:checked表示被选中的元素 */
+/* 选中的元素鼠标经过时不变颜色 */
+.container .nav:checked + a,
+.container .nav:checked:hover + a {
+	background-color: rgba(255,255,255,0.5);
+	color: rgba(0,0,0,1);
+	transition: all 0.8s;
+}
+
+/* 给选中的radio的元素添加一个三角冒泡 */
+.container .nav:checked + a:before {
+	content: "";
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: rgba(255,255,255,0.5);
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -20px;
+}
+
+/* 鼠标划过input时 a要表现的样式 */
+.container .nav:hover + a {
+	background-color: rgba(0,0,0,0.5);
+	color: rgba(255,255,255,.5);
+	transition: background-color 0.5s ease-in-out 0.2s,
+				color 0.5s ease-in-out 0.2s;
+}
+
+.content,.box {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.content {
+	top: 0;
+	left: 0;
+	/*transform: translate3d(0,0,0);*/
+	/*backface-visibility: hidden;*/
+	/* 给全屏切换transform一个过渡的效果 */
+	transition: all 1s ease-in-out;
+}
+
+.box {
+	overflow: hidden;
+}
+
+/* 满屏切换,垂直方向上移动的content这个盒子  */
+#control-1:checked ~ .content {
+	transform: translateY(0%);
+}
+#control-2:checked ~ .content {
+	transform: translateY(-100%);
+}
+#control-3:checked ~ .content {
+	transform: translateY(-200%);
+}
+#control-4:checked ~ .content {
+	transform: translateY(-300%);
+}
+#control-5:checked ~ .content {
+	transform: translateY(-400%);
+}
+/* 添加一个页面的按钮导航 */
+.box span {
+	width: 50px;
+	line-height: 50px;
+	position: absolute;
+	bottom: 70px;
+	left: 50%;
+	margin-left: -25px;
+	color: rgba(234,234,234,0.5);
+	font-size: 40px;
+	font-weight: normal;
+	text-align: center;
+	border-radius: 50%;
+	border: 1px solid rgba(255,255,255,0.5);
+	transition: all 0.6s;
+	opacity: 0;
+	cursor: pointer;
+}
+.box span:hover {
+	color: rgba(234,234,234,0.8);
+	background-color: rgba(0,0,0,0.5);
+}
+/*注意选择器的使用*/
+#control-1:checked ~ .content #box1 span,
+#control-2:checked ~ .content #box2 span,
+#control-3:checked ~ .content #box3 span,
+#control-4:checked ~ .content #box4 span,
+#control-5:checked ~ .content #box5 span {
+	animation: nav 2s ease-in 3.5s forwards;
+}
+@keyframes nav {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+/* 一个页面的大概骨架结束*/
+/* 下面是具体每个盒子链接要的样式 */
+/* 
+	container盒子的背景图js控制它的切换 
+*/
+#container {
+	background: url(../images/bg1.jpg) no-repeat 47% 0;
+	background-size: 100% 100%;
+	animation: bg 1s ease-in-out 0.2s backwards;
+	transition: all 2s;
+}
+/*给人视觉一个缩放的效果*/
+@keyframes bg {
+	0% {
+		transform: scale(1.5,1.5);
+		opacity: 0.8;
+	}
+	100%{
+		transform: scale(1,1);
+		opacity: 1;
+	}
+}
+/* box1的样式 */
+/*#box1 {*/
+	/*原本只想给box1做背景切换的*/
+	/*background: url(../images/bg1.jpg) no-repeat 47% 0;*/
+	/*background-size: 100% 100%;*/
+	/*transition: all 2s;*/
+/*}*/
+
+/* 这个模糊层实际也可以用在container这个大盒子里面 */
+#box1 .mohuceng,
+#box3 .mohuceng,
+#box5 .mohuceng {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.2);
+}
+
+#box1 h1 {
+	width: 20%;
+	font-size: 50px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 1%;
+	color: #fff;
+	margin-left: -10%;
+	cursor: pointer;
+	transition: all 1s;
+}
+#control-1:checked ~ .content #box1 h1 {
+	animation: titleLeft 1.5s ease-in-out 0.2s backwards;
+}
+@keyframes titleLeft {
+	0% {
+		transform: translateX(-1500px);
+		top: 20%;
+		opacity: 0.1;
+	}
+	100%{
+		transform: translateX(0);
+		top: 1%;
+		opacity: 1;
+	}
+}
+#box1 h1:after {
+	content: "";
+	width: 0;
+	height: 0;
+	position: absolute;
+    top: 100%; 
+    left: 50%;
+    transition: all 1s;
+}
+#box1 h1:hover {
+	color: rgba(255,255,255,.8);
+}
+/* 当鼠标划过时，由中心向两边张开 */
+#box1 h1:hover:after {
+	/*原理是left:50%变成0%的同时，宽度从0%变成100%*/
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background-color: rgba(255,255,255,.5);
+}
+#box1 .img {
+	width: 9%;
+	min-height: 122px;
+	text-align: center;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	margin-left: -4.5%;
+	padding: 0;
+	background: url(../images/touxiang.jpg) no-repeat 0 0;
+	background-size: 100% 100%;
+	border-radius: 50%;
+	cursor: pointer;
+}
+/* 这个效果还没有做先放着
+	鼠标滑过头像的蒙层
+ */
+#box1 .img div {
+	display: none;
+	width: 100%;
+	height: 100%;
+	line-height: 170px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	margin-left: -50%;
+	border-radius: 50%;
+	background: rgba(0,0,0,0.5);
+	cursor: pointer;
+	transition: all 0.8s;
+}
+#control-1:checked ~ .content #box1 .img {
+	animation: Img 1.8s ease-in-out 1s backwards;
+	transition: transform 0.8s;
+}
+@keyframes Img {
+	0% {
+		transform: translateX(600px) scale(0,0) rotate(0);
+		opacity: 0;
+	}
+	100%{
+		transform: translateX(0px) scale(1,1) rotate(720deg);
+		opacity: 1;
+	}
+}
+#box1 .img:hover {
+	transform: rotate(360deg);
+}
+#control-1:checked ~ .content #box1 h2 {
+	width: 28%;
+	color: #EAEAEA;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-weight: normal;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	margin-left: -14%;
+	opacity: 0;
+	animation: opaci 3.2s ease-in 1.5s forwards;
+}
+@keyframes opaci {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+#control-1:checked ~ .content #box1 h2:after {
+	content: "";
+	width: 0;
+	height: 1px;
+	background-color: rgba(234,234,234,0.6);
+	position: absolute;
+    top: 175%;
+    left: 50%;
+    /*transition: all 0.6s;*/
+    /*当动画结束时，让它的状态变为动画结束时的状态*/
+    animation: width 2s ease-in 2.2s forwards;
+}
+@keyframes width {
+	0% {
+		left: 50%;
+		width: 0;
+		height: 1px;
+	}
+	100% {
+		left: 0;
+		width: 100%;
+		height: 1px;
+	}
+}
+#control-1:checked ~ .content #box1 p {
+	width: 22%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -11%;
+	font-size: 16px;
+	text-align: center;
+	color: #f7f7f7;
+	animation: moveUp 1.5s ease-in-out 3.5s backwards;
+}
+@keyframes moveUp {
+	0% {
+		transform: translateY(60px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+		/*		
+			box2基本资料的全部样式
+		*/
+.content section:nth-child(2) {
+	background: url(../images/22.jpg) no-repeat 0 0;
+	background-size: 100% 1900px;
+	/* 免得被container盒子给挡住 */
+	z-index: 20;
+}
+/* 一些通用的h2样式 */
+#box2 h2,
+#box3 h2,
+#box4 h2,
+#box5 h2 {
+	width: 20%;
+	font-size: 34px;
+	line-height: 32px;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	margin-left: -10%;
+	transition: all 1s;
+}
+/* 设置标题的阴影样式可以与上面合并 */
+/*当鼠标离开时用的*/
+#box2 h2,#box4 h2 {
+	/*color: transparent;*/
+	/*text-shadow: rgba(0,0,0,.5) 0 5px 6px,rgba(0,0,0,.2) 1px 3px 3px;*/
+	/*存在兼容性问题*/
+	background: skyblue;
+	-webkit-background-clip: text;
+	color: skyblue;
+	letter-spacing: 0;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+} 
+#box2 h2:hover {
+	color: transparent;
+	background: #fff;
+	text-shadow: rgba(0,0,0,.5) 0 5px 6px,rgba(0,0,0,.2) 1px 3px 3px;
+	-webkit-background-clip: text;
+}
+
+#control-2:checked ~ .content #box2 h2:after {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 3px;
+	/*background-color: rgba(234,234,234,0.8);*/
+	background: skyblue;
+	position: absolute;
+    top: 150%;
+    left: 50%;
+    transition: all 1s;
+    animation: width2 2s ease-in 2s forwards;
+}
+@keyframes width2 {
+	0% {
+		left: 50%;
+		width: 0;
+		height: 3px;
+	}
+	100% {
+		left: 0;
+		width: 80%;
+		height: 3px;
+		margin-left: 25px;
+		border-radius: 5px;
+	}
+}
+/*h2执行的动画*/
+#control-2:checked ~ .content #box2 h2,
+#control-4:checked ~ .content #box4 h2 {
+	animation: moveDown 2s ease-in-out 0.2s backwards;
+}
+@keyframes moveDown {
+	0% {
+		transform: translateY(-90px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+/*注意选择器的使用*/
+#control-2:checked ~ .content #box2 h2:hover:after {
+	background-color: #dedbdb;
+}
+#box2 .main {
+	width: 86%;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -43%;
+	overflow: hidden;
+	/*border: 1px solid #fff;*/
+	display: flex;
+}
+#box2 .main ul {
+	overflow: hidden;
+	text-align: center;
+	/* 
+		此布局需要设置width属性
+	*/
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+#box2 .main ul li {
+	text-align: center;
+	font-size: 14px;
+	margin: 5px 20px;
+	transition: all 1.2s;
+}
+#box2 .main ul li:hover {
+	color: rgba(255,255,0,0.7);
+}
+#box2 .main ul li p {
+	margin: 25px 5px 5px;
+}
+#box2 .main ul li i {
+	font-size: 80px;
+	border-radius: 50%;
+	transition: all 1.2s;
+}
+#box2 .main ul li:first-of-type > i {
+	color: #fae19f;
+	background-color: skyblue;
+	border-radius: 50%;
+}
+#box2 .main ul li:first-of-type:hover > i {
+	color: skyblue;
+	background-color: #fff;
+	transform: rotate(360deg);
+}
+#box2 .main ul li:nth-of-type(2)>i {
+	font-size: 62px;
+	width: 84px;
+	height: 84px;
+	line-height: 84px;
+	color: #fff;
+	background: skyblue;
+}
+#box2 .main ul li:nth-of-type(2):hover > i {
+	color: rgba(0,0,0,0.8);
+	background: #fff;
+}
+#box2 .main ul li:nth-of-type(3)>i {
+	color: #fff;
+	font-size: 56px;
+	width: 84px;
+	height: 84px;
+	line-height: 80px;
+	background: #c4b994;
+	/*看起来图标比较居中些*/
+	padding-left: 4px;
+}
+#box2 .main ul li:nth-of-type(3):hover > i {
+	color: #fae19f;
+	background: skyblue;
+	transform: rotate(360deg);
+}
+#box2 .main ul li:last-of-type > i {
+	width: 84px;
+	height: 84px;
+	font-size: 76px;
+	color: #AECED1;
+	background: rgba(255,255,255,0.8);
+}
+/*让电话居中点*/
+#box2 .main ul li:last-of-type > i:before {
+	display: inline-block;
+	margin-top: 6px;
+}
+#box2 .main ul li:last-of-type:hover > i {
+	color: rgba(255,255,255,0.7);
+	background: #64A2BB;
+}
+#box2 .main ul li h3 {
+	color: yellow;
+	margin: 25px 0px 5px;
+	position: relative;
+}
+#box2 .main ul li h3:after {
+	content: "";
+	width: 100px;
+	height: 2px;
+	background-color: rgba(234,234,234,0.8);
+	/*background: #C4DEF6;*/
+	/*background: yellow;*/
+	position: absolute;
+    top: 150%;
+    left: 50%;
+    margin-left: -50px;
+    border-radius: 4px;
+    /*transition: all 0.6s;*/
+    /*当动画结束时，让它的状态变为动画结束时的状态*/
+    /*animation: widths 2s ease-in 1s forwards;*/
+    /*在考虑要不要给他动画，后期再说*/
+}
+/*@keyframes widths {
+	0% {
+		left: 50%;
+		width: 0;
+		height: 1px;
+	}
+	100% {
+		left: 0;
+		width: 200px;
+		height: 1px;
+	}
+}*/
+#control-2:checked ~ .content #box2 .main {
+	/*animation: moveUp 2s ease-in-out 0.2s backwards;*/
+}
+/* 四个li从不同的方向进入 */
+#control-2:checked ~ .content #box2 .main ul li:first-of-type {
+	animation: moveUp1 1.8s ease-in-out 0.2s backwards;
+}
+#control-2:checked ~ .content #box2 .main ul li:nth-of-type(2) {
+	animation: moveUp2 1.5s ease-in-out 1s backwards;
+}
+#control-2:checked ~ .content #box2 .main ul li:nth-of-type(3) {
+	animation: moveUp3 1.5s ease-in-out 2s backwards;
+}
+#control-2:checked ~ .content #box2 .main ul li:last-of-type {
+	animation: moveUp4 1s ease-in-out 3s backwards;
+}
+@keyframes moveUp1 {
+	0% {
+		transform: translateX(-150px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes moveUp2 {
+	0% {
+		transform: translateY(150px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes moveUp3 {
+	0% {
+		transform: translateY(-150px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes moveUp4 {
+	0% {
+		transform: translateX(150px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/* 	box3、box4、box5的h2通用样式
+	待自己开发，现在只是简单的呈现
+*/
+#box3 h2,#box4 h2,#box5 h2 {
+	top: 6%;
+}
+/*box4个人技能的样式*/
+#box4 {
+	background: url(../images/11.jpg) no-repeat 0 0;
+	background-size: 100% 100%;
+}
+#box4 h2 {
+	background: skyblue;
+	-webkit-background-clip: text;
+	color: skyblue;
+	letter-spacing: 0;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+#control-4:checked ~ .content #box4 h2:after {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 3px;
+	background: #9CC8FD;
+	position: absolute;
+    top: 150%;
+    left: 50%;
+    transition: all 1s;
+    /* forwards设置对象状态为动画结束时的状态*/
+    animation: width4 1.6s ease-in 1.5s forwards;
+}
+@keyframes width4 {
+	0% {
+		left: 50%;
+		width: 0;
+		height: 3px;
+	}
+	100% {
+		left: 0;
+		width: 80%;
+		height: 3px;
+		margin-left: 25px;
+		border-radius: 5px;
+	}
+}
+#box4 .skillLeft {
+	width: 34%;
+	height: 360px;
+	background: url(../images/skill2.png) no-repeat 45% 0;
+	background-size: 120% 100%;
+	position: absolute;
+	top: 20%;
+	left: 14%;
+	opacity: 0.8;
+}
+#box4 .skillLeft>div {
+	width: 52%;
+	height: 30%;
+	font-size: 20px;
+	font-weight: 600;
+	position: absolute;
+	top: 30%;
+	left: 22%;
+	text-shadow: 2px 1px 2px #000;
+	transform: skew(4deg,5deg);
+}
+#control-4:checked ~ .content #box4 .skillLeft>div p {
+	/* backwards设置对象状态为动画开始时的状态*/
+	animation: p 2s ease-in-out 0.6s backwards;
+}
+@keyframes p {
+	0% {
+		transform: translateY(60px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+#control-4:checked ~ .content #box4 .skillLeft>div h3 {
+	animation: h3 2s ease-in-out 0.6s backwards;
+}
+@keyframes h3 {
+	0% {
+		transform: translateY(-60px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+#control-4:checked ~ .content #box4 .skillLeft>div h3>i,
+#control-4:checked ~ .content #box4 .skillLeft>div p>i {
+	/*线性渐变 从左到右*/
+	 background-image: -webkit-linear-gradient(left ,#2EC748, #8BF52B 25%, #D7FB6B 50%, #8BF52B 75%,#D7FB6B);
+	/*text-fill-color会覆盖color所定义的字体颜色*/
+    -webkit-text-fill-color: transparent;
+    /* text值从前景内容的形状（比如文字）作为裁剪区域向外裁剪，如此即可实现使用背景作为填充色之类的遮罩效果*/
+    -webkit-background-clip: text;
+    /*让背景图片大小水平方向扩大一倍，这样background-position才有移动与变化的空间*/
+    -webkit-background-size: 200% 100%;
+	animation: blink 3.6s ease 3s infinite;
+}
+@keyframes blink {
+	/*用于闪烁文字*/
+	/*0% { opacity: 1; color: #AD5EEE;}
+	50% { opacity: 1; color: skyblue;}
+	50.01% { opacity: 1; color: #F4FF74;}
+	70.01% { opacity: 0;}
+	100% { opacity: 0; }*/
+	/*文字渐变 从左到右一直执行然后又回到原点如此反复*/
+	0%  { background-position: 0 0;}
+	100% { background-position: -100% 0;}
+}
+#box4 .skillRight {
+	width: 40%;
+	color: rgba(255,255,255,0.9);
+	text-shadow: 2px 1px 2px #000;
+	/*text-shadow: 1px 1px 2px #007746;*/
+	font-size: 16px;
+	position: absolute;
+	top: 22%;
+	right: 5%;
+}
+#box4 .skillRight ul i {
+	float: left;
+	font-size: 40px;
+	color: #9CC8FD;
+	margin-top: 14px;
+	margin-right: 15px;
+}
+#box4 .skillRight ul i:first-child {
+	margin-top: 0px;
+}
+#box4 .skillRight ul li {
+	line-height: 1.5;
+}
+#box4 .skillRight ul li:first-of-type,
+#box4 .skillRight ul li:nth-of-type(3),
+#box4 .skillRight ul li:nth-of-type(5) {
+	height: 40px;
+	font-size: 20px;
+}
+#box4 .skillRight ul li:nth-of-type(3),
+#box4 .skillRight ul li:nth-of-type(5) {
+	margin-top: 20px;
+}
+#box4 .skillRight ul li:nth-of-type(2),
+#box4 .skillRight ul li:nth-of-type(4),
+#box4 .skillRight ul li:last-of-type {
+	padding-left: 55px;
+}
+/*一开始挖的坑，也只能坑到底了，那么复杂的选择器！！！*/
+#control-4:checked ~ .content #box4 .skillRight ul li:first-of-type,
+#control-4:checked ~ .content #box4 .skillRight ul li:nth-of-type(3),
+#control-4:checked ~ .content #box4 .skillRight ul li:nth-of-type(5),
+#control-4:checked ~ .content #box4 .skillRight ul i {
+	animation: moveDownli 1.5s ease-in-out 0.2s backwards;
+}
+@keyframes moveDownli {
+	0% {
+		transform: translateY(-90px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+#control-4:checked ~ .content #box4 .skillRight ul li:nth-of-type(2),
+#control-4:checked ~ .content #box4 .skillRight ul li:nth-of-type(4),
+#control-4:checked ~ .content #box4 .skillRight ul li:last-of-type {
+	animation: up 2s ease-in-out 0.6s backwards;
+}
+@keyframes up {
+	0% {
+		transform: translate(200px);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(0);
+		opacity: 1;
+	}
+}
+
+
+
+
+/* 
+	响应式的设置
+	这里还有待开发完成！！！
+	在分辨率1365以下显示的
+*/
+@media screen and (max-width: 1365px) {
+	#box1 .img {
+		width: 12%;
+		height: 120px;
+		/*height: 19.5%;*/
+		margin-left: -6%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		font-size: 18px;
+		width: 32%;
+		margin-left: -16%;
+	}
+	#control-1:checked ~ .content #box1 p {
+		font-size: 14px;
+		width: 26%;
+		margin-left: -13%;
+		top: 55%;
+	}
+}
+
+/* 
+	在分辨率1367-1440之间显示的
+*/
+@media screen and (min-width: 1367px) and (max-width: 1440px) {
+	#box1 .img {
+		width: 12%;
+		height: 170px;
+		margin-left: -6%;
+	}
+}

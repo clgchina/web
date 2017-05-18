@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Resume</title>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<style>
+
+	/* box5 contact me 的样式*/
+	#box5 h2 {
+		color: #fff;
+	}
+	#box5 .call {
+		width: 66%;
+		position: absolute;
+		top: 20%;
+		left: 50%;
+		margin-left: -33%;
+		height: 300px;
+		background-color: rgba(0,0,0,0.2);
+	}
+	#box5 .call ul {
+		width: 100%;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+	#box5 .call ul li {
+		width: 25%;
+	}
+	#box5 .call ul li i {
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		border-radius: 8px;
+		text-align: center;
+		margin-bottom: 8px;
+	}
+	#box5 .call ul li:first-child i {
+		font-size: 46px;
+		background-color: #E0CAB3;
+	}
+	#box5 .call ul li:nth-child(2) i {
+		font-size: 34px;
+		font-weight: 500;
+		background-image: -webkit-linear-gradient(top right,#AFDF08,#F6D006 45%,#FF8300);
+	}
+	#box5 .call ul li:nth-child(3) i {
+		font-size: 46px;
+		background-color: #FF9935;
+	}
+	#box5 .call ul li:last-child i {
+		font-size: 40px;
+		background-color: green;
+	}
+</style>
+<body>
+	<div class="container" id="container">
+		<!-- 
+			radio不设置name属性的话会变成复选的效果！！！
+			默认选中第一个checked="checked"
+		-->
+		<input type="radio" name="radio" id="control-1" class="nav">
+		<a href="#box1">resume</a>
+		<input type="radio" name="radio" id="control-2" class="nav">
+		<a href="#box2">基本资料</a>
+		<input type="radio" name="radio" id="control-3" class="nav">
+		<a href="#box3">项目经验</a>
+		<input type="radio" name="radio" id="control-4" class="nav">
+		<a href="#box4">个人技能</a>
+		<input type="radio" name="radio" checked id="control-5" class="nav">
+		<a href="#box5">contact me</a>
+		<!-- 导航end  content begin -->
+		<div class="content">
+			<section id="box1" class="box">
+				<div class="mohuceng"></div>
+				<h1>Resume</h1>
+				<div class="img"><div>头像图片</div></div>
+				<h2>路漫漫其修远兮，吾将上下而求索</h2>
+				<p>Hello，我是&nbsp;陈丽国<br><br>
+					web前端工程师<br><br>
+					求职深圳/广州<br><br>
+					想了解更多，点击导航或往下滚动哦
+				</p>
+				<span title="下一页" class="fa fa-angle-double-down"></span>
+			</section>
+			<section id="box2" class="box bgcolor">
+				<h2>基本资料</h2>
+				<div class="main">
+					<ul>
+						<li>
+							<i class="fa fa-user-circle-o"></i>
+							<h3>个人信息</h3>
+							<p>
+								姓名：陈丽国&nbsp;性别：男<br><br>
+								出生年月：1996-10&nbsp;
+								籍贯：广东河源
+							</p>
+						</li>
+						<li>
+							<i class="fa fa-mortar-board"></i>
+							<h3>学历专业</h3>
+							<p>
+								学历：大专<br><br>
+								专业：计算机网络应用
+							</p>
+						</li>
+						<li>
+							<i class="fa fa-university"></i>
+							<h3>毕业院校</h3>
+							<p>
+								毕业于：广州华夏学院<br><br>
+								在校学习：H5、Css3、php等
+							</p>
+						</li>
+						<li>
+							<i class="fa fa-phone"></i>
+							<h3>联系方式</h3>
+							<p>
+								电话：13049602717<br><br>
+								邮箱：1319059071@qq.com
+							</p>
+						</li>
+					</ul>
+				</div>
+				<span title="下一页" class="fa fa-angle-double-down"></span>
+			</section>
+			<section id="box3" class="box">
+				<div class="mohuceng"></div>
+				<h2>项目经验</h2>
+				<span title="下一页" class="fa fa-angle-double-down"></span>
+			</section>
+			<section id="box4" class="box bgcolor">
+				<h2>个人技能</h2>
+				<div class="skillLeft">
+					<div>
+						<h3><i>个人技能</i></h3>
+						<br>
+						<p><i>此网页技术：H5+C3+js</i></p>
+					</div>	
+				</div>
+				<div class="skillRight">
+					<ul>
+						<i class="fa fa-flag"></i>
+						<li>前端知识</li>
+						<li>熟悉掌握HTML和CSS，熟悉手写代码结构进行网页布局，对HTML5和CSS3有一定的了解，熟悉掌握javascript、JQuery实现一些常见的交互效果，了解canvas(实际主要还是靠js调用相应的API)</li>
+						<i class="fa fa-laptop"></i>
+						<li>后台知识</li>
+						<li>有一定后台知识，了解PHP语言，掌握mysql数据库的基本操作，了解MVC模式思想，掌握基本的ThinkPHP框架知识，良好的代码书写、注释习惯</li>
+						<i class="fa fa-bookmark-o"></i>
+						<li>&nbsp;&nbsp;其它</li>
+						<li>了解ajax和JSON的基本使用，了解响应式布局网站，有一定的自学能力，喜欢接触新鲜有趣的事物</li>
+					</ul>
+				</div>
+				<span title="下一页" class="fa fa-angle-double-down"></span>
+			</section>
+			<section id="box5" class="box">
+				<div class="mohuceng"></div>
+				<h2>contact me</h2>
+				<div class="call">
+					<ul>
+						<li>
+							<i class="fa fa-mobile"></i>
+							<p>手机：13049602717</p>
+						</li>
+						<li>
+							<i class="fa fa-envelope-o"></i>
+							<p>邮箱：1319059071@qq.com</p>
+						</li>
+						<li>
+							<i class="fa fa-map-marker"></i>
+							<p>现居：广州市从化区</p>
+						</li>
+						<li>
+							<i class="fa fa-weixin"></i>
+							<p>微信：VBinclude</p>
+						</li>
+					</ul>
+				</div>
+				<span title="第一页" class="fa fa-angle-double-up"></span>
+			</section>
+		</div>		
+	</div>
+	<!-- <script src="js/jquery.min.js"></script> -->
+	<!-- <script src="js/bootstrap.min.js"></script> -->
+	<script src="js/index.js"></script>
+</body>
+</html>
