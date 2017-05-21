@@ -7,71 +7,21 @@
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/index.css">
 </head>
-<style>
-
-	/* box5 contact me 的样式*/
-	#box5 h2 {
-		color: #fff;
-	}
-	#box5 .call {
-		width: 66%;
-		position: absolute;
-		top: 20%;
-		left: 50%;
-		margin-left: -33%;
-		height: 300px;
-		background-color: rgba(0,0,0,0.2);
-	}
-	#box5 .call ul {
-		width: 100%;
-		text-align: center;
-		display: flex;
-		justify-content: center;
-	}
-	#box5 .call ul li {
-		width: 25%;
-	}
-	#box5 .call ul li i {
-		width: 50px;
-		height: 50px;
-		line-height: 50px;
-		border-radius: 8px;
-		text-align: center;
-		margin-bottom: 8px;
-	}
-	#box5 .call ul li:first-child i {
-		font-size: 46px;
-		background-color: #E0CAB3;
-	}
-	#box5 .call ul li:nth-child(2) i {
-		font-size: 34px;
-		font-weight: 500;
-		background-image: -webkit-linear-gradient(top right,#AFDF08,#F6D006 45%,#FF8300);
-	}
-	#box5 .call ul li:nth-child(3) i {
-		font-size: 46px;
-		background-color: #FF9935;
-	}
-	#box5 .call ul li:last-child i {
-		font-size: 40px;
-		background-color: green;
-	}
-</style>
 <body>
 	<div class="container" id="container">
 		<!-- 
 			radio不设置name属性的话会变成复选的效果！！！
 			默认选中第一个checked="checked"
 		-->
-		<input type="radio" name="radio" id="control-1" class="nav">
+		<input type="radio" name="radio" checked id="control-1" class="nav">
 		<a href="#box1">resume</a>
 		<input type="radio" name="radio" id="control-2" class="nav">
 		<a href="#box2">基本资料</a>
 		<input type="radio" name="radio" id="control-3" class="nav">
-		<a href="#box3">项目经验</a>
+		<a href="#box3">作品</a>
 		<input type="radio" name="radio" id="control-4" class="nav">
 		<a href="#box4">个人技能</a>
-		<input type="radio" name="radio" checked id="control-5" class="nav">
+		<input type="radio" name="radio" id="control-5" class="nav">
 		<a href="#box5">contact me</a>
 		<!-- 导航end  content begin -->
 		<div class="content">
@@ -81,7 +31,7 @@
 				<div class="img"><div>头像图片</div></div>
 				<h2>路漫漫其修远兮，吾将上下而求索</h2>
 				<p>Hello，我是&nbsp;陈丽国<br><br>
-					web前端工程师<br><br>
+					未来的web前端工程师<br><br>
 					求职深圳/广州<br><br>
 					想了解更多，点击导航或往下滚动哦
 				</p>
@@ -130,7 +80,39 @@
 			</section>
 			<section id="box3" class="box">
 				<div class="mohuceng"></div>
-				<h2>项目经验</h2>
+				<h2>作品</h2>
+				<div class="workshow">
+					<figure>
+						<img src="images/project1.jpg">
+						<figcaption>
+							<h3>个人作品：简历</h3><br>
+							<p>制作时间：2017-5<br><br>
+								技术使用：H5+css3+js<br><br>
+								任务详情：由自己独立设计开发完成
+							</p>
+						</figcaption>
+					</figure>
+					<figure>
+						<img src="images/project2.jpg">
+						<figcaption>
+							<h3>守望先锋的官网</h3><br>
+							<p>制作时间：2017-3<br><br>
+								技术使用：H5+css3+js<br><br>
+								任务详情：自己仿写此官网
+							</p>
+						</figcaption>
+					</figure>
+					<figure>
+						<img src="images/project3.jpg">
+						<figcaption>
+							<h3>方正软件公司</h3><br>
+							<p>制作时间：2016-12<br><br>
+								技术使用：html+css+js<br><br>
+								任务详情：仿写该公司的整个网站
+							</p>
+						</figcaption>
+					</figure>
+				</div>
 				<span title="下一页" class="fa fa-angle-double-down"></span>
 			</section>
 			<section id="box4" class="box bgcolor">
@@ -146,13 +128,13 @@
 					<ul>
 						<i class="fa fa-flag"></i>
 						<li>前端知识</li>
-						<li>熟悉掌握HTML和CSS，熟悉手写代码结构进行网页布局，对HTML5和CSS3有一定的了解，熟悉掌握javascript、JQuery实现一些常见的交互效果，了解canvas(实际主要还是靠js调用相应的API)</li>
+						<li>熟悉掌握HTML和CSS，可以手写代码结构进行网页布局，对HTML5和CSS3有一定的了解，熟悉掌握javascript、JQuery实现一些常见的交互效果，了解canvas(实际主要还是靠js调用相应的API)</li>
 						<i class="fa fa-laptop"></i>
 						<li>后台知识</li>
 						<li>有一定后台知识，了解PHP语言，掌握mysql数据库的基本操作，了解MVC模式思想，掌握基本的ThinkPHP框架知识，良好的代码书写、注释习惯</li>
 						<i class="fa fa-bookmark-o"></i>
 						<li>&nbsp;&nbsp;其它</li>
-						<li>了解ajax和JSON的基本使用，了解响应式布局网站，有一定的自学能力，喜欢接触新鲜有趣的事物</li>
+						<li>了解ajax和JSON的基本使用，了解响应式布局网站，有GitHub网站的代码仓库，有一定的自学能力，喜欢接触新鲜有趣的事物</li>
 					</ul>
 				</div>
 				<span title="下一页" class="fa fa-angle-double-down"></span>
@@ -171,21 +153,27 @@
 							<p>邮箱：1319059071@qq.com</p>
 						</li>
 						<li>
-							<i class="fa fa-map-marker"></i>
-							<p>现居：广州市从化区</p>
-						</li>
-						<li>
 							<i class="fa fa-weixin"></i>
 							<p>微信：VBinclude</p>
 						</li>
+						<li>
+							<i class="fa fa-map-marker"></i>
+							<p>现居：广州市从化区</p>
+						</li>
 					</ul>
+					<h3>给我留言</h3>
+					<div class="email">
+						<p><input type="text" id="name" placeholder="你的名字或者昵称"></p>
+						<p><input type="tel" id="contact" placeholder="你的手机号或者邮箱等"></p>
+						<p><input id="textarea" placeholder="你想留言的内容"></input></p>
+						<p><button type="submit">确认留言</button></p>
+					</div>
 				</div>
 				<span title="第一页" class="fa fa-angle-double-up"></span>
 			</section>
 		</div>		
 	</div>
 	<!-- <script src="js/jquery.min.js"></script> -->
-	<!-- <script src="js/bootstrap.min.js"></script> -->
 	<script src="js/index.js"></script>
 </body>
 </html>

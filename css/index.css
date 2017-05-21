@@ -74,7 +74,7 @@ html,body{
 .container .nav:checked:hover + a {
 	background-color: rgba(255,255,255,0.5);
 	color: rgba(0,0,0,1);
-	transition: all 0.8s;
+	transition: none;
 }
 
 /* 给选中的radio的元素添加一个三角冒泡 */
@@ -94,8 +94,7 @@ html,body{
 .container .nav:hover + a {
 	background-color: rgba(0,0,0,0.5);
 	color: rgba(255,255,255,.5);
-	transition: background-color 0.5s ease-in-out 0.2s,
-				color 0.5s ease-in-out 0.2s;
+	transition: all 0.5s ease-in-out 0.2s;
 }
 
 .content,.box {
@@ -107,13 +106,16 @@ html,body{
 .content {
 	top: 0;
 	left: 0;
-	/*transform: translate3d(0,0,0);*/
-	/*backface-visibility: hidden;*/
+	/*告诉移动端使用3d渲染，*/
+	transform: translate3d(0,0,0);
+	backface-visibility: hidden;
 	/* 给全屏切换transform一个过渡的效果 */
-	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
 }
 
 .box {
+	/*移动端可以尝试出现滚动条*/
+	/*overflow: auto;*/
 	overflow: hidden;
 }
 
@@ -135,6 +137,7 @@ html,body{
 }
 /* 添加一个页面的按钮导航 */
 .box span {
+	/*display: none;*/
 	width: 50px;
 	line-height: 50px;
 	position: absolute;
@@ -290,6 +293,7 @@ html,body{
 	transition: all 0.8s;
 }
 #control-1:checked ~ .content #box1 .img {
+	transform: translate3d(0,0,0) rotate3d(0,0,0);
 	animation: Img 1.8s ease-in-out 1s backwards;
 	transition: transform 0.8s;
 }
@@ -404,6 +408,8 @@ html,body{
 	/*color: transparent;*/
 	/*text-shadow: rgba(0,0,0,.5) 0 5px 6px,rgba(0,0,0,.2) 1px 3px 3px;*/
 	/*存在兼容性问题*/
+	width: 15%;
+	margin-left: -7.5%;
 	background: skyblue;
 	-webkit-background-clip: text;
 	color: skyblue;
@@ -417,7 +423,8 @@ html,body{
 	-webkit-background-clip: text;
 }
 
-#control-2:checked ~ .content #box2 h2:after {
+#control-2:checked ~ .content #box2 h2:after,
+#control-4:checked ~ .content #box4 h2:after {
 	content: "";
 	display: inline-block;
 	width: 0;
@@ -438,15 +445,17 @@ html,body{
 	}
 	100% {
 		left: 0;
-		width: 80%;
+		width: 100%;
 		height: 3px;
-		margin-left: 25px;
 		border-radius: 5px;
 	}
 }
 /*h2执行的动画*/
 #control-2:checked ~ .content #box2 h2,
-#control-4:checked ~ .content #box4 h2 {
+#control-3:checked ~ .content #box3 h2,
+#control-4:checked ~ .content #box4 h2,
+#control-5:checked ~ .content #box5 h2{
+	transform: translate3d(0,0,0);
 	animation: moveDown 2s ease-in-out 0.2s backwards;
 }
 @keyframes moveDown {
@@ -644,13 +653,82 @@ html,body{
 	}
 }
 
-/* 	box3、box4、box5的h2通用样式
-	待自己开发，现在只是简单的呈现
+	/*  
+		box3 的样式
+	*/
+#box3 .workshow {
+	width: 100%;
+	position: absolute;
+	top: 26%;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
+#box3 .workshow figure {
+	width: 25%;
+	font-size: 18px;
+	margin: 0 12px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	/*transition: all 1s;*/
+}
+#box3 .workshow figure img {
+	width: 100%;
+	height: 240px;
+	opacity: 0.8;
+	transition: all 1s;
+}
+#box3 .workshow figure figcaption {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	top: 185px;
+	left: 0;
+	background-color: rgba(0,0,0,0.6);
+	transition: all 1s;
+}
+#box3 .workshow figure figcaption h3 {
+	line-height: 60px;
+}
+#control-3:checked ~ .content #box3 .workshow figure{
+	animation: sca 2s linear 0.4s backwards;
+}
+@keyframes sca {
+	0% {
+		opacity: 0;
+		transform: scale(0,0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1,1);
+	}
+}
+#box3 .workshow figure:hover img {
+	transform: scale(1.4,1.2);
+}
+#box3 .workshow figure:hover figcaption {
+	top: 0;
+}
+#box3 .workshow figure figcaption p {
+	transform: translateY(60px);
+	transition: all 0.8s;
+}
+#box3 .workshow figure:hover figcaption p {
+	 transform: translateY(0);
+}
+
+/* 	
+	box4、box5的h2通用样式
 */
-#box3 h2,#box4 h2,#box5 h2 {
+#box4 h2,#box5 h2 {
 	top: 6%;
 }
-/*box4个人技能的样式*/
+	/* 
+		box4个人技能的样式
+	*/
 #box4 {
 	background: url(../images/11.jpg) no-repeat 0 0;
 	background-size: 100% 100%;
@@ -662,33 +740,13 @@ html,body{
 	letter-spacing: 0;
 	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
 }
+
+/* box4 h2 的动画与box2 h2相同,有一些合并了 */
 #control-4:checked ~ .content #box4 h2:after {
-	content: "";
-	display: inline-block;
-	width: 0;
-	height: 3px;
-	background: #9CC8FD;
-	position: absolute;
-    top: 150%;
-    left: 50%;
-    transition: all 1s;
     /* forwards设置对象状态为动画结束时的状态*/
-    animation: width4 1.6s ease-in 1.5s forwards;
+    animation: width2 1.6s ease-in 1.5s forwards;
 }
-@keyframes width4 {
-	0% {
-		left: 50%;
-		width: 0;
-		height: 3px;
-	}
-	100% {
-		left: 0;
-		width: 80%;
-		height: 3px;
-		margin-left: 25px;
-		border-radius: 5px;
-	}
-}
+
 #box4 .skillLeft {
 	width: 34%;
 	height: 360px;
@@ -831,7 +889,129 @@ html,body{
 	}
 }
 
-
+	/* 
+		box5 contact me 的样式
+	*/	
+#box5 h2 {
+	color: #fff;
+}
+#box5 .call {
+	width: 66%;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -33%;
+	overflow: hidden;
+}
+#box5 .call ul {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+#box5 .call ul li {
+	width: 25%;
+}
+#box5 .call ul li i {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 8px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+#box5 .call ul li:first-child i {
+	font-size: 46px;
+	background-color: #E0CAB3;
+}
+#box5 .call ul li:nth-child(2) i {
+	font-size: 34px;
+	font-weight: 500;
+	background-image: -webkit-linear-gradient(top right,#AFDF08,#F6D006 45%,#FF8300);
+}
+#box5 .call ul li:nth-child(3) i {
+	font-size: 46px;
+	background-color: green;
+}
+#box5 .call ul li:last-child i {
+	font-size: 40px;
+	background-color: #FF9935;
+}
+#box5 h3 {
+	width: 100%;
+	color: rgba(255,255,255,0.8);
+	font-size: 20px;
+	text-align: center;
+	margin: 30px 0;
+}
+#box5 .email {
+	width: 100%;
+	margin: 25px 0 0;
+}
+#box5 .email p {
+	text-align: center;
+	display: inline-block;
+	width: 49%;
+}
+#box5 .email p:nth-child(3) {
+	text-align: left;
+	display: block;
+	width: 100%;
+}
+#box5 .email p:last-child {
+	width: 100%;
+	text-align: center;
+	display: block;
+	margin-top: 18px;
+}
+#box5 .email input{
+	display: inline-block;
+	width: 86%;
+	height: 25px;
+	padding: 6px 15px;
+	margin: 6px 12px;
+	font-size: 14px;
+	color: #fff;
+	background-color: rgba(0,0,0,0.2);
+	background-image: none;
+	border: 1px solid #8c8c8c;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: all ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+#box5 .email input[id="textarea"] {
+	width: 92.5%;
+	height: 75px;
+}
+#box5 input:focus {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+#box5 .email p:last-child button {
+	width: 76px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(255,255,255,0.6);
+	background-color: rgba(0,0,0,0.5);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.6s;
+}
+#box5 .email p:last-child button:hover {
+	color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,0.8);
+}
+#control-5:checked ~ .content #box5 .call {
+	animation: moveUp 2s ease-in-out 1s backwards;
+}
+#control-5:checked ~ .content #box5 .email {
+	animation: moveUp 1.8s ease-in-out 2s backwards;
+}
 
 
 /* 
