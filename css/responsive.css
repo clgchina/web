@@ -1,0 +1,490 @@
+/* 
+	响应式的设置
+	这里还有待完成！！！
+	在分辨率1365以下显示的
+*/
+@media screen and (min-width: 378px) and (max-width: 1365px) {
+	/* box1 Resume */
+	#box1 .img {
+		height: 120px;
+		width: 12%;
+		margin-left: -6%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		font-size: 18px;
+		width: 32%;
+		margin-left: -16%;
+	}
+	#control-1:checked ~ .content #box1 p {
+		font-size: 14px;
+		width: 26%;
+		margin-left: -13%;
+		top: 55%;
+	}
+	
+	/*box2*/
+	#box2 .main {
+		width: 98%;
+		margin-left: -49%;
+	}
+	#box2 h2,#box4 h2 {
+		width: 23%;
+		margin-left: -11.5%;
+	}
+
+	/*box3 作品*/
+	#box3 .workshow figure {
+		font-size: 15px;
+	}
+
+
+	/* box4 个人技能 */
+	/*1122px-985px*/
+	#box4 .skillLeft {
+		height: 340px;
+	}
+	#box4 .skillLeft>div {
+		left: 20%;
+		font-size: 16px;
+		/*不加粗看不清楚字*/
+		font-weight: 700;
+		transform: skew(2deg,4deg);
+	}
+	#box4 .skillRight ul i {
+		font-size: 36px;
+	}
+	#box4 .skillRight ul li:first-of-type,
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5) {
+		height: 35px;
+		font-size: 18px;
+	}
+	#box4 .skillRight {
+		right: 4%;
+		font-size: 15px;
+	}
+	#box4 .skillRight ul li {
+		line-height: 1.2;
+	}
+}
+
+/* 
+	在分辨率1367-1440之间显示的
+*/
+@media screen and (min-width: 1367px) and (max-width: 1440px) {
+	#box1 .img {
+		width: 12%;
+		height: 170px;
+		margin-left: -6%;
+	}
+}
+
+
+
+/* width=375px Iphone6*/
+@media screen and (max-width: 376px) {
+	/* box1 */
+	#box1 h1 {
+		width: 60%;
+		font-size: 38px;
+		margin-left: -30%;
+	}
+	#box1 .img {
+		width: 32%;
+		height: 15%;
+		top: 18%;
+		margin-left: -15%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		width: 90%;
+		font-size: 18px;
+		top: 45%;
+		margin-left: -45%;
+	}
+	#control-1:checked ~ .content #box1 h2:after {
+		top: 140%;
+	}
+	#control-1:checked ~ .content #box1 p {
+		width: 96%;
+		font-size: 15px;
+		top: 55%;
+		margin-left: -48%;
+	}
+	/* 底部导航的设置 */
+	.container input.nav,.container a {
+		height: 32px;
+		line-height: 32px;
+	}
+	.container a {
+		font-family: '微软雅黑';
+		font-size: 14px;
+		font-weight: normal;
+	}
+	.container .nav:checked + a:before {
+		border: none;
+	}
+	.box span {
+		width: 40px;
+		line-height: 40px;
+		font-size: 36px;
+		margin-left: -20px;
+	}
+	/*.container .nav:checked + a {
+		background-color: #fff;
+	}*/
+	/* box2 */
+	#box2,#box3,#box4,#box5 {
+		overflow: auto;
+	}
+	#box2 h2,#box4 h2 {
+		width: 52%;
+		font-size: 30px;
+		top: 2%;
+		margin-left: -26%;
+	}
+	#box2 .main {
+		top: 15%;
+		margin-bottom: 120px;
+	}
+	#box2 .main ul {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	#box2 .main ul li {
+		margin-top: 15px;
+	}
+	/* 每个图标的缩小 */
+	#box2 .main ul li i:first-of-type {
+		font-size: 60px;
+	}
+	#box2 .main ul li:nth-of-type(2)>i,
+	#box2 .main ul li:nth-of-type(3)>i,
+	#box2 .main ul li:last-of-type>i {
+		font-size: 42px;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+	#box2 .main ul li:nth-of-type(3)>i {
+		padding-bottom: 5px;
+	}
+	#box2 .main ul li:last-of-type > i:before {
+		margin-top: 0;
+	}
+	/* h3标题 p元素的设置 */
+	#box2 .main ul li h3 {
+		margin: 15px 0 0;
+	}
+	#box2 .main ul li p {
+		margin-left: 0;
+		margin-right: 0; 
+	}
+	/* 修改span导航的位置 */
+	#box2 span {
+		bottom: -285px;
+	}
+
+
+	/* box3 */
+	#box3 .mohuceng{
+		height: 170%;
+	}
+	#box3 h2,#box5 h2 {
+		width: 70%;
+		top: 5%;
+		margin-left: -35%;
+	}
+	#control-3:checked ~ .content #box3 h2 {
+		animation: moveDown 2s ease-in-out 0.2s backwards,
+		shan 1.6s linear 2.2s;
+	}
+	@keyframes shan {
+		0% { opacity: 1; color: skyblue;}
+		50% { opacity: 1; color: green;}
+		50.01% { opacity: 1; color: blue;}
+		70.01% { opacity: 1; color: yellow;}
+		100% { opacity: 0;}
+	}
+	#box3 .workshow {
+		flex-wrap: wrap;
+		top: 18%;
+		/*margin-bottom: 150px;*/
+	}
+	#box3 .workshow figure {
+		width: 80%;
+		font-size: 16px;
+		margin-top: 18px;
+	}
+	#box3 span {
+		bottom: -350px;
+	}
+
+	/* box4 */
+	#box4 {
+		background-position: -150px;
+		background-size: 160% 100%;
+	}
+	/* 让文字看的明显一些 */
+	#box4 .mohuceng {
+		width: 100%;
+		height: 180%;
+		background-color: rgba(0,0,0,.3);
+	}
+	#box4 .skillLeft {
+		width: 90%;
+		height: 280px;
+		left: 50%;
+		margin-left: -45%;
+	}
+	/* 流光字体的设置 */
+	#box4 .skillLeft>div {
+		top: 26%;
+		left: 16%;
+		width: 56%;
+		height: 36%;
+		font-family: '微软雅黑';
+		font-size: 16px;
+		text-shadow: none;
+		background-color: rgba(0,0,0,.2);
+		transform: skew(-1deg,3deg);
+	}
+	#control-4:checked ~ .content #box4 .skillLeft>div p>i {
+		padding-right: 5px;
+	}
+	/* skillRight */
+	#box4 .skillRight {
+		width: 98%;
+		top: 70%;
+		left: 50%;
+		margin-left: -49%;
+		color: #fff;
+		text-shadow: 0px 1px 0px #106B46;
+	}
+	#box4 .skillRight ul {
+		padding: 5px 12px;
+	}
+	#box4 .skillRight ul i {
+		font-size: 35px;
+		margin-top: 28px;
+	}
+	#box4 .skillRight ul li {
+		line-height: 1.8;
+	}
+	#box4 .skillRight ul li:nth-of-type(2),
+	#box4 .skillRight ul li:nth-of-type(4),
+	#box4 .skillRight ul li:last-of-type {
+		padding-left: 47px;
+	}
+	#box4 .skillRight ul li:first-of-type,
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5) {
+		height: 32px;
+		font-size: 17px;
+	}
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5) {
+		margin-top: 30px;
+	}
+	#box4 span {
+		bottom: -430px;
+	}
+
+	/* box5	*/
+	#box5 .mohuceng {
+		height: 163%;
+	}
+	#box5 .call {
+		top: 18%;
+		width: 96%;
+		margin-left: -48%;
+	}
+	#box5 .call>ul {
+		flex-wrap: wrap;
+	}
+	#box5 .call>ul li {
+		width: 60%;
+		margin-bottom: 30px;
+	}
+	#box5 .call>ul li p {
+		font-size: 16px;
+		margin-top: 5px;
+	}
+	#box5 .call h3 {
+		margin: 30px 0 0;
+	}
+	#box5 .message>form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	#box5 .message>form p {
+		width: 100%;
+	}
+	#box5 .message>form p input {
+		height: 30px;
+		padding: 0 5px;
+		font-weight: normal;
+		font-size: 15px;
+	}
+	#box5 .message input[id="textarea"] {
+		height: 85px;
+	}
+	#box5 .message p:last-child button {
+		font-size: 16px;
+		font-weight: normal;
+		color: #fff;
+	}
+	#box5 span {
+		bottom: -52%;
+	}
+}
+
+/* width=320px Iphone5 */
+@media screen and (max-width: 321px) {
+	.container a {
+		font-size: 12px;
+	}
+	/* box1 */
+	#box1 .img {
+		top: 16%;
+		width: 36%;
+		height: 10%;
+		margin-left: -19%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		font-size: 17px;
+	}
+	#control-1:checked ~ .content #box1 p {
+		font-size: 14px;
+	}
+
+	/* box2 */
+	#box2 span {
+		bottom: -340px;
+	}
+
+	/*box3*/
+	#box3 .mohuceng {
+		height: 180%;
+	}
+	#box3 span {
+		bottom: -390px;
+	}
+
+	/* box4 */
+	#box4 .mohuceng {
+		height: 195%;
+	}
+	#box4 .skillLeft {
+		width: 80%;
+		height: 240px;
+		margin-left: -40%;
+		background-position: 65% 0;
+	}
+	#box4 .skillLeft>div {
+		left: 12%;
+		font-size: 12px;
+	}
+	#control-4:checked ~ .content #box4 .skillLeft>div h3 {
+		margin-bottom: -8px;
+	}
+	#control-4:checked ~ .content #box4 .skillLeft>div p>i {
+		line-height: 5;
+	}
+	#box4 .skillRight ul li:first-of-type,
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5){
+		line-height: 30px;
+		font-size: 20px;
+	}
+	#box4 span {
+		bottom: -485px;
+	}
+	
+	/* box5 */
+	#box5 .mohuceng{
+		height: 176%;
+	}
+	#box5 .message input {
+		margin: 6px 5px;
+	}
+	#box5 span {
+		bottom: -66%;
+	}
+}
+
+
+/* height=481px */
+@media screen and (max-height: 481px) {
+	#box1 span {
+		bottom: 47px;
+	}
+	#box2 span {
+		bottom: -420px;
+	}
+
+	/* box3 */
+	#box3 .mohuceng {
+		height: 190%;
+	}
+	#box3 .workshow figure {
+		font-size: 14px;
+	}
+	#box3 .workshow figure img {
+		height: 210px;
+	}
+	#box3 .workshow figure figcaption {
+		top: 170px;
+	}
+	#box3 .workshow figure figcaption h3 {
+		line-height: 40px;
+	}
+	#box3 span {
+		bottom: -379px;
+	}
+	
+	/* box4 */
+	#box4 .mohuceng {
+		height: 208%;
+	}
+	#box4 .skillRight {
+		top: 75%;
+	}
+	#box4 .skillRight ul li:nth-of-type(2),
+	#box4 .skillRight ul li:nth-of-type(4),
+	#box4 .skillRight ul li:last-of-type {
+		font-size: 14px;
+	}
+	#box4 span {
+		bottom: -462px;
+	}
+
+	/* box5 */
+	#box5 .mohuceng {
+		height: 194%;
+	}
+	#box5 .call>ul li p {
+		font-size: 14px;
+	}
+	#box5 .call h3 {
+		font-size: 18px;
+		margin: 12px 0 0;
+	}
+	#box5 .message {
+		margin: 15px 0 0;
+	}
+	#box5 .message>form p input {
+		font-size: 12px;
+	}
+	#box5 .message p:last-child {
+		margin-top: 14px;
+	}
+	#box5 .message p:last-child button {
+		font-size: 12px;
+		width: 60px;
+		height: 30px;
+	}
+	#box5 span {
+		bottom: -82%;
+	}
+}

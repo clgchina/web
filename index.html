@@ -6,6 +6,7 @@
 	<title>Resume</title>
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 	<div class="container" id="container">
@@ -22,7 +23,7 @@
 		<input type="radio" name="radio" id="control-4" class="nav">
 		<a href="#box4">个人技能</a>
 		<input type="radio" name="radio" id="control-5" class="nav">
-		<a href="#box5">contact me</a>
+		<a href="#box5">contact&nbsp;me</a>
 		<!-- 导航end  content begin -->
 		<div class="content">
 			<section id="box1" class="box">
@@ -116,6 +117,7 @@
 				<span title="下一页" class="fa fa-angle-double-down"></span>
 			</section>
 			<section id="box4" class="box bgcolor">
+				<div class="mohuceng"></div>
 				<h2>个人技能</h2>
 				<div class="skillLeft">
 					<div>
@@ -162,11 +164,13 @@
 						</li>
 					</ul>
 					<h3>给我留言</h3>
-					<div class="email">
-						<p><input type="text" id="name" placeholder="你的名字或者昵称"></p>
-						<p><input type="tel" id="contact" placeholder="你的手机号或者邮箱等"></p>
-						<p><input id="textarea" placeholder="你想留言的内容"></input></p>
-						<p><button type="submit">确认留言</button></p>
+					<div class="message">
+						<form>
+							<p><input type="text" id="name" placeholder="你的昵称(必填)" required="true"></p>
+							<p><input type="number" id="contact" placeholder="你的手机号(可不填)" min="0" max="9"></p>
+							<p><input type="text" id="textarea" placeholder="你想留言的内容(必填)" required="true"></input></p>
+							<p><button type="submit">确认留言</button></p>
+						</form>
 					</div>
 				</div>
 				<span title="第一页" class="fa fa-angle-double-up"></span>

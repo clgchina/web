@@ -20,7 +20,7 @@ window.onload = function() {
 		//兼容火狐浏览器
 		window.addEventListener('DOMMouseScroll',mouseScroll,false);
 	}
-	window.onwheel = mouseScroll;
+	// window.onwheel = mouseScroll;
 	function handle(num,arr) {
 		var index;
 		for(var i=0;i<arr.length;i++){//得到当前checked元素的下标
