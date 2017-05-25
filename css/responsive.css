@@ -1,24 +1,25 @@
 /* 
 	响应式的设置
 	这里还有待完成！！！
-	在分辨率1365以下显示的
+	在分辨率1360以下显示的
 */
-@media screen and (min-width: 378px) and (max-width: 1365px) {
+
+@media screen and (min-width: 687px) and (max-width: 1300px) {
 	/* box1 Resume */
 	#box1 .img {
-		height: 120px;
-		width: 12%;
-		margin-left: -6%;
+		width: 14%;
+		height: 21%;
+		margin-left: -7%;
 	}
 	#control-1:checked ~ .content #box1 h2 {
 		font-size: 18px;
-		width: 32%;
-		margin-left: -16%;
+		width: 34%;
+		margin-left: -17%;
 	}
 	#control-1:checked ~ .content #box1 p {
 		font-size: 14px;
-		width: 26%;
-		margin-left: -13%;
+		width: 42%;
+		margin-left: -21%;
 		top: 55%;
 	}
 	
@@ -30,6 +31,9 @@
 	#box2 h2,#box4 h2 {
 		width: 23%;
 		margin-left: -11.5%;
+	}
+	#box2 .main ul li {
+		font-size: 12px;
 	}
 
 	/*box3 作品*/
@@ -68,6 +72,20 @@
 	}
 }
 
+/* ... */
+@media screen and (max-width: 686px) {
+	#box1 .img {
+		width: 18%;
+		height: 21%;
+		margin-left: -9%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		font-size: 18px;
+		width: 44%;
+		margin-left: -22%;
+	}
+}
+
 /* 
 	在分辨率1367-1440之间显示的
 */
@@ -77,6 +95,261 @@
 		height: 170px;
 		margin-left: -6%;
 	}
+}
+
+
+/* width=414px Iphone6 Plus*/
+@media screen and (max-width: 418px) {
+	/* box1 */
+	#box1 h1 {
+		width: 70%;
+		font-size: 38px;
+		margin-left: -35%;
+	}
+	#box1 .img {
+		width: 35%;
+		height: 20%;
+		top: 15%;
+		margin-left: -17.5%;
+	}
+	#control-1:checked ~ .content #box1 h2 {
+		width: 80%;
+		font-size: 20px;
+		top: 42%;
+		margin-left: -40%;
+	}
+	#control-1:checked ~ .content #box1 h2:after {
+		top: 150%;
+	}
+	#control-1:checked ~ .content #box1 p {
+		width: 96%;
+		font-size: 18px;
+		top: 55%;
+		margin-left: -48%;
+	}
+	/* 底部导航的设置 */
+	.container input.nav,.container a {
+		height: 34px;
+		line-height: 34px;
+	}
+	.container a {
+		font-family: '微软雅黑';
+		font-size: 15px;
+		font-weight: normal;
+	}
+	.container .nav:checked + a:before {
+		border: none;
+	}
+	
+	#box2,#box3,#box4,#box5 {
+		overflow: auto;
+	}
+
+	/* box2 */
+	#box2 h2,#box4 h2 {
+		width: 52%;
+		font-size: 32px;
+		top: 4%;
+		margin-left: -26%;
+	}
+	#box2 .main {
+		top: 15%;
+		margin-bottom: 150px;
+	}
+	#box2 .main ul {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	#box2 .main ul li {
+		font-size: 17px;
+		margin-top: 15px;
+	}
+	/* 每个图标的缩小 */
+	#box2 .main ul li i:first-of-type {
+		font-size: 60px;
+	}
+	#box2 .main ul li:nth-of-type(2)>i,
+	#box2 .main ul li:nth-of-type(3)>i,
+	#box2 .main ul li:last-of-type>i {
+		font-size: 42px;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+	#box2 .main ul li:nth-of-type(3)>i {
+		padding-bottom: 5px;
+	}
+	#box2 .main ul li:last-of-type > i:before {
+		margin-top: 0;
+	}
+	/* h3标题 p元素的设置 */
+	#box2 .main ul li h3 {
+		margin: 15px 0 0;
+	}
+	#box2 .main ul li p {
+		margin-left: 0;
+		margin-right: 0; 
+	}
+	/* 修改span导航的位置 */
+	#box2 span {
+		bottom: -280px;
+	}
+
+	/* box3 */
+	#box3 .mohuceng{
+		height: 150%;
+	}
+	#box3 h2,#box5 h2 {
+		width: 70%;
+		top: 5%;
+		margin-left: -35%;
+	}
+	#control-3:checked ~ .content #box3 h2 {
+		animation: moveDown 2s ease-in-out 0.2s backwards,
+		shan 1.6s linear 2.2s;
+	}
+	@keyframes shan {
+		0% { opacity: 1; color: skyblue;}
+		50% { opacity: 1; color: green;}
+		50.01% { opacity: 1; color: blue;}
+		70.01% { opacity: 1; color: yellow;}
+		100% { opacity: 0;}
+	}
+	#box3 .workshow {
+		flex-wrap: wrap;
+		top: 18%;
+	}
+	#box3 .workshow figure {
+		width: 80%;
+		font-size: 18px;
+		margin-top: 18px;
+	}
+	#box3 span {
+		bottom: -290px;
+	}
+
+	/* box4 */
+	#box4 {
+		background-position: -150px;
+		background-size: 160% 100%;
+	}
+	/* 让文字看的明显一些 */
+	#box4 .mohuceng {
+		width: 100%;
+		height: 160%;
+		background-color: rgba(0,0,0,.2);
+	}
+	#box4 .skillLeft {
+		width: 90%;
+		height: 280px;
+		left: 50%;
+		margin-left: -45%;
+	}
+	/* 流光字体的设置 */
+	#box4 .skillLeft>div {
+		top: 26%;
+		left: 18%;
+		width: 56%;
+		height: 36%;
+		font-family: '微软雅黑';
+		font-size: 16px;
+		text-shadow: none;
+		background-color: rgba(0,0,0,.2);
+		transform: skew(-1deg,3deg);
+	}
+	#control-4:checked ~ .content #box4 .skillLeft>div p>i {
+		padding-right: 5px;
+	}
+	/* skillRight */
+	#box4 .skillRight {
+		width: 98%;
+		top: 65%;
+		left: 50%;
+		margin-left: -49%;
+		/*color: #fff;*/
+		/*text-shadow: 0px 1px 0px #106B46;*/
+	}
+	#box4 .skillRight ul {
+		padding: 5px 12px;
+	}
+	#box4 .skillRight ul i {
+		font-size: 40px;
+		margin-top: 28px;
+	}
+	#box4 .skillRight ul li {
+		line-height: 1.5;
+	}
+	#box4 .skillRight ul li:nth-of-type(2),
+	#box4 .skillRight ul li:nth-of-type(4),
+	#box4 .skillRight ul li:last-of-type {
+		font-size: 18px;
+		margin-top: 8px;
+	}
+	#box4 .skillRight ul li:first-of-type,
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5) {
+		height: 35px;
+		font-size: 22px;
+	}
+	#box4 .skillRight ul li:nth-of-type(3),
+	#box4 .skillRight ul li:nth-of-type(5) {
+		margin-top: 30px;
+	}
+	#box4 span {
+		bottom: -370px;
+	}
+
+	/* box5 */
+	#box5 .mohuceng {
+		height: 152%;
+	}
+	#box5 .call {
+		top: 18%;
+		width: 96%;
+		margin-left: -48%;
+	}
+	#box5 .call>ul {
+		flex-wrap: wrap;
+	}
+	#box5 .call>ul li {
+		width: 60%;
+		margin-bottom: 30px;
+	}
+	#box5 .call>ul li p {
+		font-size: 18px;
+		margin-top: 5px;
+	}
+	#box5 .call h3 {
+		margin: 30px 0 0;
+	}
+	#box5 .message>form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	#box5 .message>form p {
+		width: 100%;
+	}
+	#box5 .message>form p input {
+		height: 36px;
+		padding: 0 5px;
+		font-weight: normal;
+		font-size: 17px;
+	}
+	#box5 .message input[id="textarea"] {
+		height: 95px;
+	}
+	#box5 .message p:last-child button {
+		width: 78px;
+		height: 40px;
+		font-size: 16px;
+		font-weight: normal;
+		color: #fff;
+	}
+	#box5 span {
+		bottom: -42%;
+	}
+
 }
 
 

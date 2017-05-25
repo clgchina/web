@@ -893,7 +893,9 @@ html,body{
 		box5 contact me 的样式
 	*/	
 #box5 h2 {
+	width: 30%;
 	color: #fff;
+	margin-left: -15%;
 }
 #box5 .call {
 	width: 66%;
