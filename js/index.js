@@ -20,6 +20,7 @@ window.onload = function() {
 		//兼容火狐浏览器
 		window.addEventListener('DOMMouseScroll',mouseScroll,false);
 	}
+	// 调用鼠标滚动事件
 	// window.onwheel = mouseScroll;
 	function handle(num,arr) {
 		var index;
@@ -50,7 +51,7 @@ window.onload = function() {
 		oBg.style.background = "url(images/bg"+a+".jpg)";
 		oBg.style.backgroundSize = "100% 100%";
 		a++;
-	}
+	};
 	window.setInterval(change,3000);
 	/*
 		单个按钮导航
@@ -70,7 +71,28 @@ window.onload = function() {
 				aInput[0].checked = true;
 			}else {
 				aInput[this.index].checked = true;
+			};
+		};
+	};
+
+	// 为作品图片添加一个链接
+	var oBox3 = document.getElementById("box3");
+	var aFigure = oBox3.getElementsByTagName("figure");
+	// var aUrl = [
+	// 	"http://www.clgweb.top",
+	// 	"http://oss.clgweb.top",
+	// 	"http://company.clgweb.top"
+	// ];
+	for(var f = 0;f < aFigure.length;f++){
+		aFigure[f].index = f;
+		aFigure[f].onclick = function() {
+			if (this.index == 0) {
+				window.open("http://www.clgweb.top");
+			}else if (this.index == 1) {
+				window.open("http://oss.clgweb.top");
+			}else{
+				window.open("http://company.clgweb.top");
 			}
-		}
+		};
 	}
 }

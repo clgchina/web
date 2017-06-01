@@ -48,7 +48,7 @@
 		height: 340px;
 	}
 	#box4 .skillLeft>div {
-		left: 20%;
+		left: 18%;
 		font-size: 16px;
 		/*不加粗看不清楚字*/
 		font-weight: 700;
@@ -70,6 +70,7 @@
 	#box4 .skillRight ul li {
 		line-height: 1.2;
 	}
+
 }
 
 /* ... */

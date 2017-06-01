@@ -672,6 +672,7 @@ html,body{
 	position: relative; 
 	overflow: hidden;
 	/*transition: all 1s;*/
+	cursor: pointer;
 }
 #box3 .workshow figure img {
 	width: 100%;
